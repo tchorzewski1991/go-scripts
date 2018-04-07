@@ -21,8 +21,16 @@ func main() {
 
 	// Value of support.Conf is visible in outer scope.
 	printSupportConf()
+
+	// Value of support.conf is visible thanks to globally accessible
+	// support.ConfGetter() function.
+	printSupportConfGetter()
 }
 
 func printSupportConf() {
 	fmt.Println(support.Conf)
+}
+
+func printSupportConfGetter() {
+	fmt.Println(support.ConfGetter())
 }
