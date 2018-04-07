@@ -30,16 +30,16 @@ func main() {
 	// It's impossible to enforce the same behavior with local variable
 	// given to the function as an argument. Go programming language is
 	// 'pass by value' language. If we provide 'VALUE' type argument to
-	// the function call, copy of that variable will stored on new empty
+	// the function call, copy of that variable will be stored on new empty
 	// memory slot.
 
 	x = 0
 
-	// Variable won't be successfully incremented as we operate on copy.
+	// Variable x won't be successfully incremented as we operate on copy.
 	incrementByOne(x)
 	fmt.Println("x is: ", x)
 
-	// Variable will be successfully incremented because of pointers manipulations.
+	// Variable x will be successfully incremented because of pointers manipulations.
 	incrementPointerByOne(&x)
 	fmt.Println("x is: ", x)
 }
