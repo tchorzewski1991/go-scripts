@@ -22,4 +22,19 @@ func main() {
 
 	fmt.Scan(&meters)
 	fmt.Printf("%v \n", converter.MetersToYards(meters))
+
+	// Example of reference / dereference. Notice y variable is a type
+	// of pointer to int. We directly assign to it memory address of
+	// variable x, so we can easily overwrite this memory slot in the
+	// future. Term '*y' means 'take value of y (memory address) and
+	// assign to it something new.
+	x = 43
+
+	fmt.Printf("x is: %d \n", x)
+	fmt.Printf("x address is %p \n", &x)
+
+	var y *int = &x
+	*y = 42
+
+	fmt.Printf("x is: %d \n", x) // should be 42.
 }
