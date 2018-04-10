@@ -23,4 +23,19 @@ func main() {
 		fmt.Printf("x is : %d \n", x)
 		x++
 	}
+
+	// Go allow for advanced control flow within for loops. Conditional
+	// statement isn't required at all. Notice we get infinite loop
+	// when control flow won't be explicitly provided in that case.
+	x = 0
+
+	for {
+		x++
+
+		if x % 2 == 0 { continue }
+
+		fmt.Printf("x is : %d \n", x)
+
+		if x >= 7 { break }
+	}
 }
