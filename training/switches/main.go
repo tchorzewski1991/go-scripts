@@ -20,6 +20,18 @@ func main()  {
     checkType("string")
     checkType(true)
 	checkType(12)
+
+    // Case statement allows for checking multiple values at onece.
+    checkChar := func(c byte) bool {
+        switch c {
+        case 'a', '?', '&':
+            return true
+        }
+        return false
+    }
+
+    fmt.Printf("char is: %v\n", checkChar(12))
+    fmt.Printf("char is: %v\n", checkChar(97))
 }
 
 
