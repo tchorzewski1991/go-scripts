@@ -23,4 +23,28 @@ func main() {
 	// Should print 13. It refers to the average of numbers specified
 	// as arguments list on the average() function call above.
 	fmt.Println("Average is: ", avg)
+
+	// Variadic arguments refers to approach where our function expects
+	// unlimited number of arguments (could be with resolved type) but
+	// instead of providing arguments one-by-one we want to 'unpack'
+	// existing data structure - for example slice.
+	accumulate := func (nums ...int) int {
+		var accumulator int
+
+		for _, n := range nums {
+			accumulator += n
+		}
+
+		return accumulator
+	}
+
+	numbers := []int{1,2,3}
+
+	sum := accumulate(numbers...)
+
+	// Should print 6. It refers to the sum of all values from slice of int32's.
+	// Notice how accumulate() argument 'numbers' are appended with '...'.
+	// It basically means - 'take those slice of int's and append one by one
+	// as a new argument to variadic function call.
+	fmt.Println("Sum is: ", sum)
 }
