@@ -47,5 +47,52 @@ func main() {
 	}
 
 	fmt.Printf("Assignment will happen. No errors encountered: %v \n", compositeLiteralMap)
+
+
+	// We can easily remove any key - value pair from map with built-in delete() function.
+	// Notice, how this approach uses standard look-up for existing key with 'for' loop.
+
+	mapBeforeRemoveStandard := map[int]string{
+		1: "one",
+		2: "two",
+	}
+
+	fmt.Printf("Before key remove: %v \n", mapBeforeRemoveStandard)
+
+
+	standardKeyRemover := func (k int, mapping map[int]string) map[int]string {
+		for key, _ := range mapping {
+			if k == key { delete(mapping, key) }
+		}
+
+		return mapping
+	}
+
+	mapAfterRemoveStandard := standardKeyRemover(1, mapBeforeRemoveStandard)
+
+	fmt.Printf("After key remove: %v \n", mapAfterRemoveStandard)
+
+
+	// We can remove specific key - value pairs from map with more idiomatic approach
+	// as well. We won't need any loop at all to achieve the same behavior.
+	mapBeforeRemoveIdiomatic := map[int]string{
+		1: "one",
+		2: "two",
+	}
+
+	fmt.Printf("Before key remove: %v \n", mapBeforeRemoveIdiomatic)
+
+
+	idiomaticKeyRemover := func (k int, mapping map[int]string) map[int]string {
+		if _, exists := mapping[k]; exists {
+			delete(mapping, k)
+		}
+
+		return mapping
+	}
+
+	mapAfterRemoveIdiomatic := idiomaticKeyRemover(1, mapBeforeRemoveIdiomatic)
+
+	fmt.Printf("After key remove: %v \n", mapAfterRemoveIdiomatic)
 }
 
