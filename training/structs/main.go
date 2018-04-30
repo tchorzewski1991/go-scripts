@@ -28,6 +28,19 @@ type Person struct {
 	Address
 }
 
+func (p Person) fullName() string {
+	return p.firstName + " " + p.lastName
+}
+
+// Structs are reference types which means there is dependent
+// underlying data structure under the hood. When we want to
+// mutate state of the given struct we can use pointer manipulations
+// to do that. Very common solution is to do this with receiver
+// function.
+func (p *Person) changeAge(newAge int) {
+	p.age = newAge
+}
+
 func main()  {
 
 	person := Person{
@@ -42,7 +55,14 @@ func main()  {
 		},
 	}
 
-	fmt.Printf("Person name: %s %s \n", person.firstName, person.lastName)
+	fmt.Printf("Person name: %s \n", person.firstName)
 	fmt.Printf("Person city: %s \n", person.Address.city)
+	fmt.Printf("Person age:  %d \n", person.age)
+
+	person.changeAge(21)
+
+	// Receiver functions are called also idiomatically 'methods'.
+	fmt.Printf("Person full name: %s \n", person.fullName())
+	fmt.Printf("Person new age:   %d \n", person.age)
 
 }
