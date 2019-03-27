@@ -16,13 +16,13 @@ type DefaultDocument struct {
 	Pages []string
 }
 
-// NewDefaultDocument() is a constructor. It returns pointer to
+// NewDefaultDocument is a constructor. It returns pointer to
 // fresh instance of DefaultDocument.
 func NewDefaultDocument() *DefaultDocument {
 	return &DefaultDocument{}
 }
 
-// String() returns document pages concatenated with comma.
+// String returns document pages concatenated with comma.
 func (doc *DefaultDocument) String() string {
 	var result string
 
@@ -33,7 +33,7 @@ func (doc *DefaultDocument) String() string {
 	return result
 }
 
-// AddPage() is a setter. It appends new page to the current
+// AddPage is a setter. It appends new page to the current
 // Pages attribute.
 func (doc *DefaultDocument) AddPage(page string) {
 	doc.Pages = append(doc.Pages, page)
@@ -45,14 +45,14 @@ type Resume struct {
 	*DefaultDocument
 }
 
-// NewResume() is a constructor. It returns pointer to fresh
+// NewResume is a constructor. It returns pointer to fresh
 // instance of Resume.
 func NewResume() *Resume {
 	return &Resume{NewDefaultDocument()}
 }
 
-// CreatePages() implements Document interface on Resume instance.
-// CreatePages() will add two new pages to Pages member attribute.
+// CreatePages implements Document interface on Resume instance.
+// CreatePages will add two new pages to Pages member attribute.
 func (r *Resume) CreatePages() {
 	r.AddPage("Resume Page 1")
 	r.AddPage("Resume Page 2")
@@ -64,14 +64,14 @@ type Report struct {
 	*DefaultDocument
 }
 
-// NewReport() is a constructor. It returns pointer to fresh
+// NewReport is a constructor. It returns pointer to fresh
 // instance of Report.
 func NewReport() *Report {
 	return &Report{NewDefaultDocument()}
 }
 
-// CreatePages() implements Document interface on Report instance.
-// CreatePages() will add three new pages to Pages member attribute.
+// CreatePages implements Document interface on Report instance.
+// CreatePages will add three new pages to Pages member attribute.
 func (r *Report) CreatePages() {
 	r.AddPage("Report Page 1")
 	r.AddPage("Report Page 2")
