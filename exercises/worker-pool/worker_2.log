@@ -1,0 +1,5 @@
+time="2019-03-24T15:48:53+01:00" level=info msg="Starting worker" WorkerID=375e86f1-5133-47c4-a8bd-25a76d357818
+time="2019-03-24T15:48:53+01:00" level=info msg="Job received" JobID=0 WorkerID=375e86f1-5133-47c4-a8bd-25a76d357818
+time="2019-03-24T15:49:08+01:00" level=info msg="Job done" JobID=0 WorkerID=375e86f1-5133-47c4-a8bd-25a76d357818
+time="2019-03-24T15:49:08+01:00" level=info msg="Job received" JobID=5 WorkerID=375e86f1-5133-47c4-a8bd-25a76d357818
+time="2019-03-24T15:49:18+01:00" level=info msg="Job done" JobID=5 WorkerID=375e86f1-5133-47c4-a8bd-25a76d357818
