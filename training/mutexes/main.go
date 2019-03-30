@@ -1,8 +1,8 @@
 package main
 
 import (
-	"strconv"
 	"fmt"
+	"strconv"
 	"sync"
 )
 
@@ -37,12 +37,12 @@ func (c *currency) Display() string {
 	return strconv.FormatFloat(c.amount, 'f', 2, 64)
 }
 
-var Balance = currency{amount: 50.0, code: "GBP"}
+var balance = currency{amount: 50.0, code: "GBP"}
 
 func main() {
-	fmt.Printf("Balance before addition: %s \n", Balance.Display())
+	fmt.Printf("Balance before addition: %s \n", balance.Display())
 
-	Balance.Add(12.0)
+	balance.Add(12.0)
 
-	fmt.Printf("Balance after addition: %s \n", Balance.Display())
+	fmt.Printf("Balance after addition: %s \n", balance.Display())
 }
