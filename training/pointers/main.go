@@ -33,7 +33,7 @@ func main() {
 	fmt.Printf("x is: %d \n", x)
 	fmt.Printf("x address is %p \n", &x)
 
-	var y *int = &x
+	var y = &x
 	*y = 42
 
 	fmt.Printf("x is: %d \n", x) // should be 42.
