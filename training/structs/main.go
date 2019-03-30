@@ -14,21 +14,21 @@ import "fmt"
 // Instantiation have been replaced with assigning values to those
 // types.
 
-type Address struct {
+type address struct {
 	country  string
 	city     string
 	street   string
 	postCode int
 }
 
-type Person struct {
+type person struct {
 	firstName string
 	lastName  string
 	age       int
-	Address
+	address
 }
 
-func (p Person) fullName() string {
+func (p person) fullName() string {
 	return p.firstName + " " + p.lastName
 }
 
@@ -37,17 +37,18 @@ func (p Person) fullName() string {
 // mutate state of the given struct we can use pointer manipulations
 // to do that. Very common solution is to do this with receiver
 // function.
-func (p *Person) changeAge(newAge int) {
+
+func (p *person) changeAge(newAge int) {
 	p.age = newAge
 }
 
-func main()  {
+func main() {
 
-	person := Person{
+	person := person{
 		firstName: "Joe",
 		lastName:  "Doe",
 		age:       20,
-		Address: Address{
+		address: address{
 			country:  "Country",
 			city:     "City",
 			street:   "Street",
@@ -56,7 +57,7 @@ func main()  {
 	}
 
 	fmt.Printf("Person name: %s \n", person.firstName)
-	fmt.Printf("Person city: %s \n", person.Address.city)
+	fmt.Printf("Person city: %s \n", person.address.city)
 	fmt.Printf("Person age:  %d \n", person.age)
 
 	person.changeAge(21)
