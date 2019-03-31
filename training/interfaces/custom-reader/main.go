@@ -1,13 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"strings"
-	"fmt"
 )
 
-// Note is a simple struct that embeds io.Reader interface.
+// note is a simple struct that embeds io.Reader interface.
 // I want to state explicitly that the embedding struct needs
 // to satisfy the embedded interface and at the same time hide
 // it’s data. Another reason is that I want to get access to
@@ -15,43 +15,43 @@ import (
 // places. One of the examples could be *strings.Reader type.
 // I want my own struct, but there is no need to reinvent the
 // wheel - at least, not in such basic case.
-type Note struct {
+type note struct {
 	text string
 	io.Reader
 }
 
-// NewNote() returns new *Note reading from s. It uses strings.NewReader()
+// newNote returns new *note reading from s. It uses strings.NewReader()
 // to inject object, that satisfies io.Reader interface.
-func NewNote(s string) *Note {
-	return &Note{s, strings.NewReader(s)}
+func newNote(s string) *note {
+	return &note{s, strings.NewReader(s)}
 }
 
-// ReverseNote is a simple struct that will implement custom Read() method
+// reverseNote is a simple struct that will implement custom Read() method
 // to satisfy io.Reader interface manually.
-type ReverseNote struct {
+type reverseNote struct {
 	text string
-	i int64
+	i    int64
 }
 
-// NewReverseNote() returns new *ReverseNote reading from s.
-func NewReverseNote(s string) *ReverseNote {
-	return &ReverseNote{s, 0}
+// newReverseNote returns new *ReverseNote reading from s.
+func newReverseNote(s string) *reverseNote {
+	return &reverseNote{s, 0}
 }
 
-// Read() satisfies io.Reader interface for ReversNote type.
+// Read satisfies io.Reader interface for ReversNote type.
 // Internally this method takes each character from underlying
 // string source and writes it to provided slice of bytes in
 // reverse order.
-func (rn *ReverseNote) Read(p []byte) (n int, err error) {
+func (rn *reverseNote) Read(p []byte) (n int, err error) {
 	if rn.i >= int64(len(rn.text)) {
 		return 0, io.EOF
 	}
 
 	k := len(rn.text) - 1
-	var temp = make([]byte, k + 1)
+	var temp = make([]byte, k+1)
 
 	for i := 0; i <= k; i++ {
-		temp[i] = rn.text[k - i]
+		temp[i] = rn.text[k-i]
 	}
 
 	n = copy(p, temp)
@@ -61,8 +61,8 @@ func (rn *ReverseNote) Read(p []byte) (n int, err error) {
 }
 
 func main() {
-	n  := NewNote("Text")
-	rn := NewReverseNote("Text")
+	n := newNote("Text")
+	rn := newReverseNote("Text")
 
 	displayNote(n)
 	fmt.Println("\n")

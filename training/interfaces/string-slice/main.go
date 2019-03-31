@@ -8,7 +8,7 @@ import (
 type people []string
 
 func main() {
-	 students := people{"Kelly", "John", "Al", "Cecil"}
+	students := people{"Kelly", "John", "Al", "Cecil"}
 
 	fmt.Println("Unsorted numbers: ", students)
 

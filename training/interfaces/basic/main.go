@@ -35,7 +35,6 @@ func displayArea(s shape) {
 	fmt.Println("Area of shape is: ", s.area())
 }
 
-
 func main() {
 	r := rectangle{1.0, 1.5}
 	s := square{1.5}

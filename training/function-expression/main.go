@@ -8,7 +8,7 @@ func main() {
 	// Example of function expression. This is one of the way to define
 	// function within another function block scope.
 	// Notice: func () {} is anonymous function.
-	increment := func () int {
+	increment := func() int {
 		x++
 		return x
 	}

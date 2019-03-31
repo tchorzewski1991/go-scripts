@@ -9,7 +9,7 @@ import (
 // construction we would like to encapsulate. In most cases we want to
 // keep it simple and clean from any additional initialization logic.
 type Notification struct {
-	Body []byte
+	Body   []byte
 	Format string
 }
 
@@ -34,35 +34,39 @@ type JSONNotificationBuilder struct {
 	body      string
 }
 
-// SetRecipient() is the part of NotificationBuilder implementation.
+// SetRecipient is the part of NotificationBuilder implementation.
 func (b *JSONNotificationBuilder) SetRecipient(recipient string) {
 	lengthValidator := func(s string) bool {
 		return len(s) > 0
 	}
 
 	switch isValid := lengthValidator(recipient); isValid {
-	case true:  b.recipient = recipient
-	case false: b.recipient = "Default recipient"
+	case true:
+		b.recipient = recipient
+	case false:
+		b.recipient = "Default recipient"
 	}
 }
 
-// SetBody() is the part of NotificationBuilder implementation.
+// SetBody is the part of NotificationBuilder implementation.
 func (b *JSONNotificationBuilder) SetBody(body string) {
 	lengthValidator := func(s string) bool {
 		return len(s) > 0
 	}
 
 	switch isValid := lengthValidator(body); isValid {
-		case true:  b.body = body
-		case false: b.body = "Default body"
+	case true:
+		b.body = body
+	case false:
+		b.body = "Default body"
 	}
 }
 
-// Notification() is the part of NotificationBuilder implementation.
+// Notification is the part of NotificationBuilder implementation.
 func (b *JSONNotificationBuilder) Notification() (*Notification, error) {
 	result := make(map[string]string)
 	result["recipient"] = b.recipient
-	result["body"]      = b.body
+	result["body"] = b.body
 
 	body, err := json.Marshal(result)
 
@@ -70,10 +74,10 @@ func (b *JSONNotificationBuilder) Notification() (*Notification, error) {
 		return nil, err
 	}
 
-	return &Notification{body, "JSON" }, nil
+	return &Notification{body, "JSON"}, nil
 }
 
-// BuildNotification() is our 'director' function. Its main responsibility is to
+// BuildNotification is our 'director' function. Its main responsibility is to
 // construct the object through the builder interface. Important to notice here
 // is the type of the builder parameter. It clearly indicates that we expect here
 // not a specific type, but any type that satisfies general NotificationBuilder

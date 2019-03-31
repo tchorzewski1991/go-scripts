@@ -10,7 +10,7 @@ type person struct {
 	Age  int
 }
 
-type people []person 
+type people []person
 
 func (p people) Len() int           { return len(p) }
 func (p people) Less(i, j int) bool { return p[i].Age < p[j].Age }

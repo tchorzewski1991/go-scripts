@@ -3,8 +3,8 @@ package main
 // Explicit package import allows for using globally visible
 // variables / functions by direct reference through package name.
 import (
-	"github.com/tchorzewski1991/go-scripts/training/scopes/support"
 	"fmt"
+	"github.com/tchorzewski1991/go-scripts/training/scopes/support"
 )
 
 // Declaration of custom string type.

@@ -8,7 +8,7 @@ func main() {
 	// Notice nums will be referenced inside function body as a slice of
 	// floats64's. ([]float64). If types of arguments that we have are
 	// unknown we ca use ...interface{} instead.
-	average := func (nums ...float64) float64 {
+	average := func(nums ...float64) float64 {
 		var total float64
 
 		for _, n := range nums {
@@ -28,7 +28,7 @@ func main() {
 	// unlimited number of arguments (could be with resolved type) but
 	// instead of providing arguments one-by-one we want to 'unpack'
 	// existing data structure - for example slice.
-	accumulate := func (nums ...int) int {
+	accumulate := func(nums ...int) int {
 		var accumulator int
 
 		for _, n := range nums {
@@ -38,7 +38,7 @@ func main() {
 		return accumulator
 	}
 
-	numbers := []int{1,2,3}
+	numbers := []int{1, 2, 3}
 
 	sum := accumulate(numbers...)
 

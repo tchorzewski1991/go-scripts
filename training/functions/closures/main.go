@@ -10,9 +10,9 @@ import "fmt"
 // rather than a shallow copy, as its always happens in case of
 // functions. See examples below.
 
-var x int = 0
+var x = 0
 
-func increment() int  {
+func increment() int {
 	x++
 	return x
 }
@@ -44,10 +44,10 @@ func main() {
 	fmt.Println("x is: ", x)
 }
 
-func incrementByOne(x int)  {
+func incrementByOne(x int) {
 	x++
 }
 
-func incrementPointerByOne(x *int)  {
+func incrementPointerByOne(x *int) {
 	*x++
 }

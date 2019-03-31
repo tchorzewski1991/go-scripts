@@ -12,7 +12,7 @@ func main() {
 	// scope from unnecessary code pollutions.
 
 	for n := 0; n < 1000; n++ {
-		if mod3 := func (i int) bool {return i % 3 == 0}(n); mod3 {
+		if mod3 := func(i int) bool { return i%3 == 0 }(n); mod3 {
 			sum += n
 		}
 	}
