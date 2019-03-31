@@ -10,12 +10,12 @@ import (
 // One of the possible solutions to this problem is to
 // declare custom slice type and extend it later with sort.Interface
 // It will make it sortable.
-type ext_arr []int32
+type extArr []int32
 
 //Methods required by sort.Interface to be satisfied.
-func (c ext_arr) Len() int           { return len(c) }
-func (c ext_arr) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
-func (c ext_arr) Less(i, j int) bool { return c[i] < c[j] }
+func (c extArr) Len() int           { return len(c) }
+func (c extArr) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
+func (c extArr) Less(i, j int) bool { return c[i] < c[j] }
 
 func main() {
 	// Setup slice with custom elements order
@@ -25,7 +25,7 @@ func main() {
 
 // Finds the minimum and maximum values that can be calculated by summing
 // exactly len(arr) - 1 of the len(arr) integers
-func miniMaxSum(arr ext_arr) {
+func miniMaxSum(arr extArr) {
 	var min, max int64
 	var k = len(arr) - 1
 

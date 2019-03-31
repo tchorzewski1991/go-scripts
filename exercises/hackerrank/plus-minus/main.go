@@ -7,26 +7,26 @@ import "fmt"
 func plusMinus(arr []int32) {
 	var frPositive, frNegative, frZeros int32
 
-	arr_l := int32(len(arr))
+	l := int32(len(arr))
 
 	for _, e := range arr {
 		switch {
 		case e > 0:
-			frPositive += 1
+			frPositive++
 		case e < 0:
-			frNegative += 1
+			frNegative++
 		default:
-			frZeros += 1
+			frZeros++
 		}
 	}
 
-	fmt.Printf("%0.6f\n", getFraction(frPositive, arr_l))
-	fmt.Printf("%0.6f\n", getFraction(frNegative, arr_l))
-	fmt.Printf("%0.6f\n", getFraction(frZeros, arr_l))
+	fmt.Printf("%0.6f\n", getFraction(frPositive, l))
+	fmt.Printf("%0.6f\n", getFraction(frNegative, l))
+	fmt.Printf("%0.6f\n", getFraction(frZeros, l))
 }
 
-func getFraction(fr int32, arr_l int32) float64 {
-	return float64(fr) / float64(arr_l)
+func getFraction(fr int32, l int32) float64 {
+	return float64(fr) / float64(l)
 }
 
 func main() {

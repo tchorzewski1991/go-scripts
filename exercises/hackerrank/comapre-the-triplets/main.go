@@ -24,10 +24,10 @@ func main() {
 func compareParticipants(p1 *participant, p2 *participant) []int32 {
 	for i := 0; i < 3; i++ {
 		if p1.scores[i] > p2.scores[i] {
-			p1.points += 1
+			p1.points++
 		}
 		if p1.scores[i] < p2.scores[i] {
-			p2.points += 1
+			p2.points++
 		}
 	}
 

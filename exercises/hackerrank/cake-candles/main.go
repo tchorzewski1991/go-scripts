@@ -28,7 +28,7 @@ func birthdayCakeCandles(arr []int32) int32 {
 		if temp[k-i] != temp[k-i-1] {
 			break
 		}
-		tcc += 1
+		tcc++
 	}
 
 	return tcc
