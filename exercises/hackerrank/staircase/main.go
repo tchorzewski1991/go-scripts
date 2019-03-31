@@ -24,6 +24,8 @@ func staircase(n int32) {
 func newLevel(n int32) string {
 	ss := make([]string, n)
 	var i int32
-	for i = 0; i < n; i++ { ss = append(ss, "#") }
-	return  strings.Join(ss, "")
+	for i = 0; i < n; i++ {
+		ss = append(ss, "#")
+	}
+	return strings.Join(ss, "")
 }

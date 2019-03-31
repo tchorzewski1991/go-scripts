@@ -21,8 +21,8 @@ func gradingStudents(grades []int32) []int32 {
 
 	for _, x := range grades {
 
-		if x >= 38 && x % y >= 3 {
-			r = append(r, x - (x % y) + y)
+		if x >= 38 && x%y >= 3 {
+			r = append(r, x-(x%y)+y)
 		} else {
 			r = append(r, x)
 		}
@@ -30,5 +30,3 @@ func gradingStudents(grades []int32) []int32 {
 
 	return r
 }
-
-

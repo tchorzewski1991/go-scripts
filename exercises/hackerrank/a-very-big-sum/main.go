@@ -11,6 +11,8 @@ func main() {
 
 func aVeryBigSum(arr []int64) int64 {
 	var sum int64
-	for _, e := range arr { sum += e }
+	for _, e := range arr {
+		sum += e
+	}
 	return sum
 }
