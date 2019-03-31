@@ -18,13 +18,13 @@ func (mt mapType) printValues() {
 	}
 }
 
-func (mt mapType) callback()  {
+func (mt mapType) callback() {
 	fmt.Println("callback called!")
 }
 
 func main() {
 	myMap := mapType{
-		"name": "Joe",
+		"name":    "Joe",
 		"surname": "Doe",
 	}
 

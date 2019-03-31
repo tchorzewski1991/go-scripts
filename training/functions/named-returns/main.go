@@ -9,8 +9,8 @@ func main() {
 	// Golang allows for attaching name to the value returned by function.
 	// This is not quite frequently used pattern, but could be interesting
 	// in some cases.
-	divideableByTwo := func (i int) (result bool) {
-		result = i % 2 == 0
+	divideableByTwo := func(i int) (result bool) {
+		result = i%2 == 0
 		return
 	}
 

@@ -2,10 +2,22 @@ package main
 
 import (
 	"fmt"
-	"time"
-	"sync"
 	"math/rand"
+	"sync"
+	"time"
 )
+
+// Race conditions occur when two or more Goroutines try to
+// use a piece of shared data at the same time.
+// One way we could prevent a data race is to ensure that if
+// one Goroutine is using 'counter' variable, then all other
+// Goroutines are prevented (or mutually excluded) from using
+// it at the same time. This is where Mutex structure starts to
+// shine. One of the technique for preventing data races is
+// optimistic locking. While one Goroutine holds the lock,
+// all other Goroutines are not allowed to execute any lines of
+// code protected by the same mutex. They are forced to wait
+// until the lock is yielded.
 
 // Counter is a variable declared in the global scope.
 // It means it will be accessed by both running go routines
@@ -34,4 +46,3 @@ func incrementCounter() {
 	}
 	wg.Done()
 }
-

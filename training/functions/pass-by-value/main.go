@@ -12,7 +12,7 @@ func main() {
 	// the same. In Golang we always refer to 'pass by value' approach,
 	// rather than 'pass by reference' or 'pass by copy'. If we want
 	// to change underlying value, we need to do pointer operations.
-	var x string = "value"
+	var x = "value"
 
 	fmt.Println(&x)
 	changeX(x)
@@ -22,7 +22,7 @@ func main() {
 	// easy overwrites of underlying values. This is one of the
 	// reasons why local to the outer scope variable y has been
 	// changed from another scope.
-	var y string = "value"
+	var y = "value"
 
 	fmt.Println(&y)
 	changeY(&y)
@@ -38,4 +38,3 @@ func changeY(y *string) {
 	fmt.Println(y)
 	*y = newValue
 }
-

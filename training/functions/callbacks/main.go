@@ -17,7 +17,7 @@ func filter(numbers []int, callback func(i int) bool) []int {
 }
 
 func main() {
-	result := filter([]int{1,2,3,4,5,6}, func(n int) bool {
+	result := filter([]int{1, 2, 3, 4, 5, 6}, func(n int) bool {
 		return n > 3
 	})
 
@@ -25,4 +25,3 @@ func main() {
 	// condition provided with anonymous function.
 	fmt.Println("Result is: ", result)
 }
-

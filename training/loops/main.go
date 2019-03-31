@@ -13,7 +13,7 @@ func main() {
 	// is visible on anonymous function block and do not need to be
 	// provided explicitly. Default value for x will be resolved
 	// automatically.
-	condition := func () bool {
+	condition := func() bool {
 		return x < breakPoint
 	}
 
@@ -32,10 +32,14 @@ func main() {
 	for {
 		x++
 
-		if x % 2 == 0 { continue }
+		if x%2 == 0 {
+			continue
+		}
 
 		fmt.Printf("x is : %d \n", x)
 
-		if x >= 7 { break }
+		if x >= 7 {
+			break
+		}
 	}
 }
