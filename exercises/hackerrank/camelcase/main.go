@@ -13,7 +13,7 @@ func main() {
 
 	for _, e := range src {
 		if unicode.IsUpper(e) {
-			uppers += 1
+			uppers++
 		}
 	}
 
